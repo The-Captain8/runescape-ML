@@ -43,7 +43,7 @@ class Network:
         coords = Dense(2, activation='relu')(x)
         wait_time = Dense(1, activation='relu')(x)
         m = Model(inputs=(image_input), outputs=(coords, wait_time))
-        m.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE), loss='mse', metrics=['mse'])
+        m.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE), loss='mse', metrics=['mse', 'mse'])
         return m
     
     def train(self, screen_caps, click_positions, timeouts):
